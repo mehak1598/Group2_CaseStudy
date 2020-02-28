@@ -1,3 +1,6 @@
+import { UserRepository } from './../model/user.repository';
+
+import { UserComponent } from './../user/user.component';
 
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -10,13 +13,14 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  
   model: Login = { username: "admin", password: "admin123" };
   loginForm: FormGroup;
   message: string;
   returnUrl: string;
   constructor(private formBuilder: FormBuilder,private router: Router, public authService: AuthService) { }
   ngOnInit() {
-    if()
+  
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required]

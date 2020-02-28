@@ -1,3 +1,4 @@
+import { User } from './../users/users.component';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Book } from './book.model';
@@ -33,6 +34,13 @@ export class RestDataSource{
         return this.http.put<Book>(this.baseUrl+"/books/update"+id,book);
     }
 
+    getUsers(): Observable<User[]>{
+        return this.http.get<User[]>(this.baseUrl + "/all");
+    }
+
+    getUser(id: number): Observable<User>{
+        return this.http.get<User>(this.baseUrl+"/"+id);
+    }
 
     // saveOrder(order: Order): Observable<Order>{
     //     return this.http.post<Order>(this.baseUrl + "orders", order);
