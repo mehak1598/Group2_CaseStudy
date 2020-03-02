@@ -1,8 +1,9 @@
-import { User } from './../users/users.component';
+
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Book } from './book.model';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { User } from './user.model';
 const PROTOCOL = "http";
 const PORT = 8092;
 
@@ -35,11 +36,11 @@ export class RestDataSource{
     }
 
     getUsers(): Observable<User[]>{
-        return this.http.get<User[]>(this.baseUrl + "/all");
+        return this.http.get<User[]>(this.baseUrl + "/users/all");
     }
 
     getUser(id: number): Observable<User>{
-        return this.http.get<User>(this.baseUrl+"/"+id);
+        return this.http.get<User>(this.baseUrl+"/users/"+id);
     }
 
     // saveOrder(order: Order): Observable<Order>{
