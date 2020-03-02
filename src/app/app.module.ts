@@ -1,3 +1,5 @@
+import { BookStoreComponent } from './bookstore/bookstore.component';
+
 import { RouterModule } from '@angular/router';
 import { AuthGuard } from './auth.guard';
 import { BookstoreModule } from './bookstore/bookstore.module';
@@ -9,12 +11,16 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserComponent } from './user/user.component';
+import { AdminComponent } from './bookstore/admin.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    UserComponent  ],
+    UserComponent,
+    AdminComponent,
+  BookStoreComponent ],
   imports: [
     BrowserModule,
     FormsModule,

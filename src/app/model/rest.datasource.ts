@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Book } from './book.model';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { User } from './user.model';
+import { Admin } from './admin.model';
 const PROTOCOL = "http";
 const PORT = 8092;
 
@@ -43,7 +44,7 @@ export class RestDataSource{
         return this.http.get<User>(this.baseUrl+"/users/"+id);
     }
 
-    // saveOrder(order: Order): Observable<Order>{
-    //     return this.http.post<Order>(this.baseUrl + "orders", order);
-    // }
+    saveBook(book: Admin): Observable<Admin>{
+        return this.http.post<Admin>(this.baseUrl + "/insert", book);
+    }
 }
