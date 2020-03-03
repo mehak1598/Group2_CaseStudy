@@ -9,18 +9,27 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserComponent } from './user/user.component';
+import { RegisterModule } from './register/register.module';
+import { RegisterComponent } from './register/register.component';
+import { UserService } from './user.service';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    UserComponent  ],
+    UserComponent,
+    AdminComponent, 
+     RegisterComponent
+  ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    BookstoreModule
+    BookstoreModule,
+    //  RegisterModule,
+    // AdminModule
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

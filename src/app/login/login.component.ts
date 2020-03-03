@@ -14,7 +14,6 @@ import { User } from '../model/user.model';
 export class LoginComponent implements OnInit {
   
   users: User[];
-  model: Login = { username: "admin", password: "admin123" };
   loginForm: FormGroup;
   message: string;
   returnUrl: string;
@@ -41,20 +40,27 @@ export class LoginComponent implements OnInit {
     }
     else{
      // if(this.f.username.value == this.users.find(this.f.username.value) && this.f.password.value == this.model.password){
-     if(this.f.username.value== this.users[0].username && this.f.password.value==this.users[0].password && this.users[0].isAdmin=="0")
-     {console.log("Login successful");
+      for(let user of this.users)
+      {
+     if(this.f.username.value== user.username && this.f.password.value==user.password && user.isadmin=="0")
+     {
+       console.log("Login successful");
         //this.authService.authLogin(this.model);
         localStorage.setItem('isLoggedIn', "true");
         localStorage.setItem('token', this.f.username.value);
         this.router.navigate([this.returnUrl]);
       }
-      else if(this.f.username.value== this.users[1].username && this.f.password.value==this.users[1].password && this.users[1].isAdmin=="1")
+      else if(this.f.username.value== user.username && this.f.password.value==user.password && user.isadmin=="1")
       {
-        
+        console.log("Login successful");
+        localStorage.setItem('isLoggedIn', "true");
+        localStorage.setItem('token', this.f.username.value);
+        this.router.navigate(["/admin"]);
       }
       else{
         this.message = "Please check your username and password";
       }
+    }
     }    
 }
 }
